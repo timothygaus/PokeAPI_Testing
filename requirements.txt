@@ -1,5 +1,5 @@
-pytest
-pytest-html
-pytest-xdist
-requests
-jsonschema
+pytest=8.3.5
+pytest-html=4.1.1
+pytest-xdist=3.6.1
+requests=2.32.3
+jsonschema=4.23.0

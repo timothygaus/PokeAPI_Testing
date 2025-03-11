@@ -31,5 +31,14 @@ jobs:
     - name: Set PYTHONPATH
       run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
+    - name: Run tests with coverage
+      run: pytest --cov=lib --cov-report=html --html=report.html --self-contained-html
+
+    - name: Upload HTML report
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytest-html-report
+        path: report.html
+
     - name: Run tests
       run: pytest

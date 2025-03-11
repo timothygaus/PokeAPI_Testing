@@ -34,14 +34,14 @@ jobs:
     - name: Run tests with coverage
       run: pytest --cov=lib --cov-report=html --html=report.html --self-contained-html
 
-    - name: Upload HTML report
-      uses: actions/upload-artifact@v3
-      with:
-        name: pytest-html-report
-        path: report.html
+    # - name: Upload HTML report
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: pytest-html-report
+    #     path: report.html
 
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage-report
-        path: htmlcov
+    # - name: Upload coverage report
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: coverage-report
+    #     path: htmlcov

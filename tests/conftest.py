@@ -17,15 +17,15 @@ def endpoint(request):
     return request.param
 
 @pytest.fixture(scope="session", params=[
-    "bulbasaur",
-    "charmander",
-    "jigglypuff",
-    "pikachu",
-    "eevee",
-    "jolteon",
-    "skuntank",
+    {"id": 1, "name": "bulbasaur"},
+    {"id": 4, "name": "charmander"},
+    {"id": 39, "name": "jigglypuff"},
+    {"id": 25, "name": "pikachu"},
+    {"id": 133, "name": "eevee"},
+    {"id": 135, "name": "jolteon"},
+    {"id": 435, "name": "skuntank"},
 ])
-def pokemon_name(request):
+def pokemon_test_cases(request):
     return request.param
 
 # Add a marker for performance tests to rerun failed tests up to 3 times with a delay of 2 seconds between retries

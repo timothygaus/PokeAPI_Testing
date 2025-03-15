@@ -1,9 +1,11 @@
+import time
+from concurrent.futures import ThreadPoolExecutor
+
 import psutil
 import pytest
 import requests
-import time
 
-from concurrent.futures import ThreadPoolExecutor
+# Collection of tests for performance testing various endpoints
 
 @pytest.mark.GET
 @pytest.mark.performance

@@ -5,9 +5,10 @@ import requests
 Collection of tests for the Pokemon API endpoint
 '''
 
+
 @pytest.mark.GET
 def test_pokemon_name(pokemon_test_cases):
-    ''' Test that the returned pokemon name matches the expected name for the given input name'''
+    '''Test that the returned pokemon name matches the expected name for the given input name'''
     pokemon_name = pokemon_test_cases["name"]
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")
     assert response.status_code == 200
@@ -16,7 +17,7 @@ def test_pokemon_name(pokemon_test_cases):
 
 @pytest.mark.GET
 def test_pokemon_base_experience(pokemon_test_cases):
-    ''' Test that the returned base experience is populated correctly (greater than 0 and not None) '''
+    '''Test that the returned base experience is populated correctly (greater than 0 and not None)'''
     pokemon_name = pokemon_test_cases["name"]
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")
     assert response.status_code == 200
@@ -28,7 +29,7 @@ def test_pokemon_base_experience(pokemon_test_cases):
 
 @pytest.mark.GET
 def test_pokemon_height(pokemon_test_cases):
-    ''' Test that the returned height is populated correctly (greater than 0 and not None) '''
+    '''Test that the returned height is populated correctly (greater than 0 and not None)'''
     pokemon_name = pokemon_test_cases["name"]
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")
     assert response.status_code == 200
@@ -40,7 +41,7 @@ def test_pokemon_height(pokemon_test_cases):
 
 @pytest.mark.GET
 def test_pokemon_name_has_expected_id(pokemon_test_cases):
-    ''' Test that the name of the returned pokemon matches the expected name for the given input ID '''
+    '''Test that the name of the returned pokemon matches the expected name for the given input ID'''
     pokemon_id = pokemon_test_cases["id"]
     pokemon_name = pokemon_test_cases["name"]
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}")
@@ -52,7 +53,7 @@ def test_pokemon_name_has_expected_id(pokemon_test_cases):
 
 @pytest.mark.GET
 def test_pokemon_id_has_expected_name(pokemon_test_cases):
-    ''' Test that the ID of the returned pokemon matches the expected ID for the given input name '''
+    '''Test that the ID of the returned pokemon matches the expected ID for the given input name'''
     pokemon_id = pokemon_test_cases["id"]
     pokemon_name = pokemon_test_cases["name"]
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")

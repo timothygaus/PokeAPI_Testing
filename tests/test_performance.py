@@ -8,6 +8,7 @@ import requests
 Collection of tests for performance testing various endpoints
 '''
 
+
 @pytest.mark.GET
 @pytest.mark.performance
 def test_response_time(base_url, endpoint):

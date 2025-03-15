@@ -1,30 +1,17 @@
 import pytest
 
+from lib.test_data import ENDPOINTS
+from lib.test_data import POKEMON_TEST_CASES
+
 @pytest.fixture(scope="session")
 def base_url():
     return "https://pokeapi.co/api/v2/"
 
-@pytest.fixture(scope="session", params=[
-    "pokemon",
-    "ability",
-    "item",
-    "move",
-    "type",
-    "berry",
-    "evolution-chain",
-])
+@pytest.fixture(scope="session", params=ENDPOINTS)
 def endpoint(request):
     return request.param
 
-@pytest.fixture(scope="session", params=[
-    {"id": 1, "name": "bulbasaur"},
-    {"id": 4, "name": "charmander"},
-    {"id": 39, "name": "jigglypuff"},
-    {"id": 25, "name": "pikachu"},
-    {"id": 133, "name": "eevee"},
-    {"id": 135, "name": "jolteon"},
-    {"id": 435, "name": "skuntank"},
-])
+@pytest.fixture(scope="session", params=POKEMON_TEST_CASES)
 def pokemon_test_cases(request):
     return request.param
 

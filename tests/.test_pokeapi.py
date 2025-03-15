@@ -1,4 +1,3 @@
-import pytest
 import requests
 from jsonschema import validate
 from lib.pokeapi_json_schema import PokeAPISchema

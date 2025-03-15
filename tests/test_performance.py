@@ -1,12 +1,12 @@
 import time
-from concurrent.futures import ThreadPoolExecutor
 
 import psutil
 import pytest
 import requests
 
-# Collection of tests for performance testing various endpoints
-
+'''
+Collection of tests for performance testing various endpoints
+'''
 
 @pytest.mark.GET
 @pytest.mark.performance
@@ -29,10 +29,6 @@ def test_throughput(base_url, endpoint):
     def send_request():
         response = requests.get(f"{base_url}{endpoint}")
         return response.status_code
-
-    with ThreadPoolExecutor(max_workers=num_requests) as executor:
-        futures = [executor.submit(send_request) for _ in range(num_requests)]
-        results = [future.result() for future in futures]
 
     end_time = time.time()
     total_time = end_time - start_time

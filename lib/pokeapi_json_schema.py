@@ -1,5 +1,5 @@
 class PokeAPISchema:
-    
+
     POKEMON_SCHEMA = {
         "type": "object",
         "properties": {
@@ -7,6 +7,6 @@ class PokeAPISchema:
             "name": {"type": "string"},
             "height": {"type": "integer"},
             "weight": {"type": "integer"},
-    },
-    "required": ["id", "name", "height", "weight"]
-}
+        },
+        "required": ["id", "name", "height", "weight"],
+    }

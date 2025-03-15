@@ -1,14 +1,6 @@
 # Various lists and dictionaries used for testing purposes
 
-ENDPOINTS = [
-    "pokemon",
-    "ability",
-    "item",
-    "move",
-    "type",
-    "berry",
-    "evolution-chain"
-]
+ENDPOINTS = ["pokemon", "ability", "item", "move", "type", "berry", "evolution-chain"]
 
 POKEMON_TEST_CASES = [
     {"id": 1, "name": "bulbasaur"},
@@ -17,5 +9,5 @@ POKEMON_TEST_CASES = [
     {"id": 25, "name": "pikachu"},
     {"id": 133, "name": "eevee"},
     {"id": 135, "name": "jolteon"},
-    {"id": 435, "name": "skuntank"}
+    {"id": 435, "name": "skuntank"},
 ]

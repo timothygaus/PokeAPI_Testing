@@ -14,7 +14,7 @@ THROUGHPUT_THRESHOLD = 10 # requests per second
 CPU_PERFORMANCE_THRESHOLD = 50 # percentage
 MEMORY_PERFORMANCE_THRESHOLD = 50 * 1024 * 1024 # 50 MB converted to Bytes
 
-@pytest.mark.GET
+
 @pytest.mark.performance
 def test_response_time(base_url, endpoint):
     """Test that the response time for the endpoint is less than 1 second"""
@@ -27,7 +27,7 @@ def test_response_time(base_url, endpoint):
     print(f"Response time for {endpoint}: {end_time - start_time} seconds")
 
 
-@pytest.mark.GET
+
 @pytest.mark.performance
 def test_throughput(base_url, endpoint):
     """Test that the throughput for the endpoint is greater than 50 requests/second"""
@@ -45,7 +45,7 @@ def test_throughput(base_url, endpoint):
     print(f"Throughput for {endpoint}: {throughput} requests/second")
 
 
-@pytest.mark.GET
+
 @pytest.mark.performance
 def test_resource_usage(base_url, endpoint):
     """Test that the resource usage (CPU and Memory) for the endpoint is within acceptable limits"""

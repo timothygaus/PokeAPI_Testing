@@ -8,7 +8,7 @@ import pytest
 from lib.helpers import make_request
 
 
-@pytest.mark.GET
+
 def test_invalid_get_requests(base_url, endpoint):
     """Test that invalid GET requests return appropriate error codes (400 or 404)"""
     response = make_request('GET', f"{base_url}{endpoint}/invalid")

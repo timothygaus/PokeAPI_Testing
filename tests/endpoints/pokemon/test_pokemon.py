@@ -7,7 +7,7 @@ import pytest
 from lib.helpers import make_request
 
 
-@pytest.mark.GET
+
 def test_pokemon_name(base_url, pokemon_test_cases):
     """Test that the returned pokemon name matches the expected name for the given input name"""
     pokemon_name = pokemon_test_cases["name"]
@@ -16,7 +16,7 @@ def test_pokemon_name(base_url, pokemon_test_cases):
     assert response.json()["name"] == pokemon_name, f"Expected name {pokemon_name} but got {response.json()['name']}"
 
 
-@pytest.mark.GET
+
 def test_pokemon_base_experience(base_url, pokemon_test_cases):
     """Test that the returned base experience is populated correctly (greater than 0 and not None)"""
     pokemon_name = pokemon_test_cases["name"]
@@ -28,7 +28,7 @@ def test_pokemon_base_experience(base_url, pokemon_test_cases):
     ), f"Base experience for {pokemon_name} should be greater than 0"
 
 
-@pytest.mark.GET
+
 def test_pokemon_height(base_url, pokemon_test_cases):
     """Test that the returned height is populated correctly (greater than 0 and not None)"""
     pokemon_name = pokemon_test_cases["name"]
@@ -40,7 +40,7 @@ def test_pokemon_height(base_url, pokemon_test_cases):
     ), f"Height for {pokemon_name} should be greater than 0"
 
 
-@pytest.mark.GET
+
 def test_pokemon_name_has_expected_id(base_url, pokemon_test_cases):
     """Test that the name of the returned pokemon matches the expected name for the given input ID"""
     pokemon_id = pokemon_test_cases["id"]
@@ -52,7 +52,7 @@ def test_pokemon_name_has_expected_id(base_url, pokemon_test_cases):
     ), f"Expected name {pokemon_name} but got {response.json()['name']} for ID {pokemon_id}"
 
 
-@pytest.mark.GET
+
 def test_pokemon_id_has_expected_name(base_url, pokemon_test_cases):
     """Test that the ID of the returned pokemon matches the expected ID for the given input name"""
     pokemon_id = pokemon_test_cases["id"]

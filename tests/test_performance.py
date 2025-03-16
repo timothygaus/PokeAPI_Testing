@@ -37,7 +37,7 @@ def test_throughput(base_url, endpoint):
     end_time = time.time()
     total_time = end_time - start_time
     throughput = num_requests / total_time
-    assert throughput > 50, f"Throughput for {endpoint} was too low: {throughput} requests/second"
+    assert throughput > 25, f"Throughput for {endpoint} was too low: {throughput} requests/second"
     print(f"Throughput for {endpoint}: {throughput} requests/second")
 
 

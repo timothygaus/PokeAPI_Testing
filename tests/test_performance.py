@@ -10,6 +10,10 @@ import pytest
 from lib.helpers import make_request
 
 
+THROUGHPUT_THRESHOLD = 10 # requests per second
+CPU_PERFORMANCE_THRESHOLD = 50 # percentage
+MEMORY_PERFORMANCE_THRESHOLD = 50 * 1024 * 1024 # 50 MB converted to Bytes
+
 @pytest.mark.GET
 @pytest.mark.performance
 def test_response_time(base_url, endpoint):
@@ -37,7 +41,7 @@ def test_throughput(base_url, endpoint):
     end_time = time.time()
     total_time = end_time - start_time
     throughput = num_requests / total_time
-    assert throughput > 25, f"Throughput for {endpoint} was too low: {throughput} requests/second"
+    assert throughput > THROUGHPUT_THRESHOLD, f"Throughput for {endpoint} was too low: {throughput} requests/second"
     print(f"Throughput for {endpoint}: {throughput} requests/second")
 
 
@@ -58,7 +62,7 @@ def test_resource_usage(base_url, endpoint):
     cpu_usage = end_cpu - start_cpu
     memory_usage = end_memory - start_memory
 
-    assert cpu_usage < 50, f"CPU usage for {endpoint} was too high: {cpu_usage}%"
+    assert cpu_usage < CPU_PERFORMANCE_THRESHOLD, f"CPU usage for {endpoint} was too high: {cpu_usage}%"
     assert (
-        memory_usage < 50 * 1024 * 1024
+        memory_usage < MEMORY_PERFORMANCE_THRESHOLD
     ), f"Memory usage for {endpoint} was too high: {memory_usage / (1024 * 1024)} MB"

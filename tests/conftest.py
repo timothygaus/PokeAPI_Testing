@@ -4,9 +4,7 @@ Fixtures for pytest
 
 import pytest
 
-from lib.test_data import ENDPOINTS
-from lib.test_data import POKEMON_TEST_CASES
-
+from lib.test_data import ENDPOINTS, POKEMON_TEST_CASES
 
 @pytest.fixture(scope="session")
 def base_url():

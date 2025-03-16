@@ -15,12 +15,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.11
+        python-version: 3.13.2
 
     - name: Install dependencies
       run: |
@@ -32,7 +32,7 @@ jobs:
         pytest --maxfail=1 --disable-warnings -v --html=report.html
 
     - name: Upload HTML report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: html-report
         path: report.html

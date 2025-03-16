@@ -1,0 +1,10 @@
+# TODO: Work on README next
+
+PokeAPI Automated Testing
+
+Overview
+
+This test suite provides automated testing for the PokeAPI, located at https://pokeapi.co/. PokeAPI is a free RESTful API service that allows users to interact with a database containing information related to Pokemon. The purpose of this test suite is to test the various capabilities of the PokeAPI. This test suite primarily uses the pytest library of Python and other plugins of pytest, including pytest-html for reporting and pytest-xdist to improve test performance by running tests in parallel.
+
+Installation
+

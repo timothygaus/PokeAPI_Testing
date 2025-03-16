@@ -7,7 +7,6 @@ import pytest
 from lib.helpers import make_request
 
 
-
 def test_get_all(base_url, endpoint):
     """Test that the GET request to the endpoint returns a 200 status code and non-empty results"""
     response = make_request("GET", f"{base_url}{endpoint}")
@@ -15,7 +14,6 @@ def test_get_all(base_url, endpoint):
     data = response.json()
     assert "results" in data, f"Expected 'results' key not found in response for GET {endpoint}"
     assert len(data["results"]) > 0, f"Expected non-empty 'results' for GET {endpoint}"
-
 
 
 @pytest.mark.parametrize(

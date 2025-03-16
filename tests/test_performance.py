@@ -10,9 +10,9 @@ import pytest
 from lib.helpers import make_request
 
 
-THROUGHPUT_THRESHOLD = 10 # requests per second
-CPU_PERFORMANCE_THRESHOLD = 50 # percentage
-MEMORY_PERFORMANCE_THRESHOLD = 50 * 1024 * 1024 # 50 MB converted to Bytes
+THROUGHPUT_THRESHOLD = 10  # requests per second
+CPU_PERFORMANCE_THRESHOLD = 50  # percentage
+MEMORY_PERFORMANCE_THRESHOLD = 50 * 1024 * 1024  # 50 MB converted to Bytes
 
 
 @pytest.mark.performance
@@ -25,7 +25,6 @@ def test_response_time(base_url, endpoint):
     assert response.status_code == 200, f"Expected 200 but got {response.status_code} for {endpoint}"
     assert (end_time - start_time) < 1, f"Response time for {endpoint} took too long: {end_time - start_time} seconds"
     print(f"Response time for {endpoint}: {end_time - start_time} seconds")
-
 
 
 @pytest.mark.performance
@@ -43,7 +42,6 @@ def test_throughput(base_url, endpoint):
     throughput = num_requests / total_time
     assert throughput > THROUGHPUT_THRESHOLD, f"Throughput for {endpoint} was too low: {throughput} requests/second"
     print(f"Throughput for {endpoint}: {throughput} requests/second")
-
 
 
 @pytest.mark.performance

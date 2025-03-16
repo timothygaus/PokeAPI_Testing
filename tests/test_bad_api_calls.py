@@ -3,10 +3,7 @@ Collection of tests for invalid API calls to various endpoints,
 including invalid GET, POST, and PUT requests
 """
 
-import pytest
-
 from lib.helpers import make_request
-
 
 
 def test_invalid_get_requests(base_url, endpoint):

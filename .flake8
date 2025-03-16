@@ -8,4 +8,5 @@ exclude =
     dist,
     .venv,
     .tox,
-    .mypy_cache
+    .mypy_cache,
+    venv

@@ -6,6 +6,7 @@ import pytest
 
 from lib.test_data import ENDPOINTS, POKEMON_TEST_CASES
 
+
 @pytest.fixture(scope="session")
 def base_url():
     """Base URL for the API"""

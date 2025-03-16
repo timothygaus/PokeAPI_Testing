@@ -6,3 +6,4 @@ report.html
 .coverage
 *.code-workspace
 pylint_report.txt
+venv/

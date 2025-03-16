@@ -1,25 +1,26 @@
-import pytest
-import requests
-
-'''
+"""
 Collection of tests for the Pokemon API endpoint
-'''
+"""
+
+import pytest
+
+from lib.helpers import make_request
 
 
 @pytest.mark.GET
-def test_pokemon_name(pokemon_test_cases):
-    '''Test that the returned pokemon name matches the expected name for the given input name'''
+def test_pokemon_name(base_url, pokemon_test_cases):
+    """Test that the returned pokemon name matches the expected name for the given input name"""
     pokemon_name = pokemon_test_cases["name"]
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")
+    response = make_request("GET", f"{base_url}pokemon/{pokemon_name}")
     assert response.status_code == 200
     assert response.json()["name"] == pokemon_name, f"Expected name {pokemon_name} but got {response.json()['name']}"
 
 
 @pytest.mark.GET
-def test_pokemon_base_experience(pokemon_test_cases):
-    '''Test that the returned base experience is populated correctly (greater than 0 and not None)'''
+def test_pokemon_base_experience(base_url, pokemon_test_cases):
+    """Test that the returned base experience is populated correctly (greater than 0 and not None)"""
     pokemon_name = pokemon_test_cases["name"]
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")
+    response = make_request("GET", f"{base_url}pokemon/{pokemon_name}")
     assert response.status_code == 200
     assert "base_experience" in response.json()
     assert (
@@ -28,10 +29,10 @@ def test_pokemon_base_experience(pokemon_test_cases):
 
 
 @pytest.mark.GET
-def test_pokemon_height(pokemon_test_cases):
-    '''Test that the returned height is populated correctly (greater than 0 and not None)'''
+def test_pokemon_height(base_url, pokemon_test_cases):
+    """Test that the returned height is populated correctly (greater than 0 and not None)"""
     pokemon_name = pokemon_test_cases["name"]
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")
+    response = make_request("GET", f"{base_url}pokemon/{pokemon_name}")
     assert response.status_code == 200
     assert "height" in response.json()
     assert (
@@ -40,11 +41,11 @@ def test_pokemon_height(pokemon_test_cases):
 
 
 @pytest.mark.GET
-def test_pokemon_name_has_expected_id(pokemon_test_cases):
-    '''Test that the name of the returned pokemon matches the expected name for the given input ID'''
+def test_pokemon_name_has_expected_id(base_url, pokemon_test_cases):
+    """Test that the name of the returned pokemon matches the expected name for the given input ID"""
     pokemon_id = pokemon_test_cases["id"]
     pokemon_name = pokemon_test_cases["name"]
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}")
+    response = make_request("GET", f"{base_url}pokemon/{pokemon_id}")
     assert response.status_code == 200
     assert (
         response.json()["name"] == pokemon_name
@@ -52,11 +53,11 @@ def test_pokemon_name_has_expected_id(pokemon_test_cases):
 
 
 @pytest.mark.GET
-def test_pokemon_id_has_expected_name(pokemon_test_cases):
-    '''Test that the ID of the returned pokemon matches the expected ID for the given input name'''
+def test_pokemon_id_has_expected_name(base_url, pokemon_test_cases):
+    """Test that the ID of the returned pokemon matches the expected ID for the given input name"""
     pokemon_id = pokemon_test_cases["id"]
     pokemon_name = pokemon_test_cases["name"]
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")
+    response = make_request("GET", f"{base_url}pokemon/{pokemon_id}")
     assert response.status_code == 200
     assert (
         response.json()["id"] == pokemon_id

@@ -1,19 +1,21 @@
+"""
+Collection of tests for performance testing various endpoints
+"""
+
 import time
 
 import psutil
 import pytest
-import requests
 
-'''
-Collection of tests for performance testing various endpoints
-'''
+from lib.helpers import make_request
 
 
 @pytest.mark.GET
 @pytest.mark.performance
 def test_response_time(base_url, endpoint):
+    """Test that the response time for the endpoint is less than 1 second"""
     start_time = time.time()
-    response = requests.get(f"{base_url}{endpoint}")
+    response = make_request('GET', f"{base_url}{endpoint}")
     end_time = time.time()
 
     assert response.status_code == 200, f"Expected 200 but got {response.status_code} for {endpoint}"
@@ -24,27 +26,30 @@ def test_response_time(base_url, endpoint):
 @pytest.mark.GET
 @pytest.mark.performance
 def test_throughput(base_url, endpoint):
+    """Test that the throughput for the endpoint is greater than 50 requests/second"""
     num_requests = 100
     start_time = time.time()
 
-    def send_request():
-        response = requests.get(f"{base_url}{endpoint}")
-        return response.status_code
+    for _ in range(num_requests):
+        response = make_request('GET', f"{base_url}{endpoint}")
+        assert response.status_code == 200, f"Expected 200 but got {response.status_code} for {endpoint}"
 
     end_time = time.time()
     total_time = end_time - start_time
     throughput = num_requests / total_time
     assert throughput > 50, f"Throughput for {endpoint} was too low: {throughput} requests/second"
+    print(f"Throughput for {endpoint}: {throughput} requests/second")
 
 
 @pytest.mark.GET
 @pytest.mark.performance
 def test_resource_usage(base_url, endpoint):
+    """Test that the resource usage (CPU and Memory) for the endpoint is within acceptable limits"""
     process = psutil.Process()
     start_cpu = process.cpu_percent(interval=None)
     start_memory = process.memory_info().rss
 
-    response = requests.get(f"{base_url}{endpoint}")
+    response = make_request('GET', f"{base_url}{endpoint}")
     assert response.status_code == 200, f"Expected 200 but got {response.status_code} for {endpoint}"
 
     end_cpu = process.cpu_percent(interval=None)

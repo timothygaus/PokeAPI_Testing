@@ -1,4 +1,6 @@
-# Various lists and dictionaries used for testing purposes
+"""
+Various lists and dictionaries used for testing purposes
+"""
 
 ENDPOINTS = ["pokemon", "ability", "item", "move", "type", "berry", "evolution-chain"]
 

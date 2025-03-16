@@ -5,3 +5,4 @@ __pycache__/
 report.html
 .coverage
 *.code-workspace
+pylint_report.txt

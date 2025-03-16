@@ -7,7 +7,6 @@ import pytest
 from lib.helpers import make_request
 
 
-@pytest.mark.GET
 def test_get_all(base_url, endpoint):
     """Test that the GET request to the endpoint returns a 200 status code and non-empty results"""
     response = make_request("GET", f"{base_url}{endpoint}")
@@ -17,7 +16,6 @@ def test_get_all(base_url, endpoint):
     assert len(data["results"]) > 0, f"Expected non-empty 'results' for GET {endpoint}"
 
 
-@pytest.mark.GET
 @pytest.mark.parametrize(
     "pokemon_id", [1, 2, 3]
 )  # Not going to go with large IDs here since we are testing many different endpoints

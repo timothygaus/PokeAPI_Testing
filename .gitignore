@@ -1,9 +1,0 @@
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.vscode/
-report.html
-.coverage
-*.code-workspace
-pylint_report.txt
-venv/

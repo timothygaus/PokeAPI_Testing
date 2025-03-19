@@ -15,7 +15,7 @@ POKEMON_TEST_CASES = [
 ]
 
 EVOLUTION_CHAIN_TEST_CASES = [
-    {"id": 1, "species_name": "bulbasaur"},
-    {"id": 5, "species_name": "weedle"},
-    {"id": 10, "species_name": "pichu"},
+    {"id": 1, "species_name": "bulbasaur", "is_baby": False},
+    {"id": 5, "species_name": "weedle", "is_baby": False},
+    {"id": 10, "species_name": "pichu", "is_baby": True},
 ]

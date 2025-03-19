@@ -4,7 +4,7 @@ Fixtures for pytest
 
 import pytest
 
-from lib.test_data import ENDPOINTS, POKEMON_TEST_CASES
+from lib.test_data import ENDPOINTS, POKEMON_TEST_CASES, EVOLUTION_CHAIN_TEST_CASES
 
 
 @pytest.fixture(scope="session")
@@ -15,13 +15,19 @@ def base_url():
 
 @pytest.fixture(scope="session", params=ENDPOINTS)
 def endpoint(request):
-    """Endpoint for the API"""
+    """Endpoints for the API"""
     return request.param
 
 
 @pytest.fixture(scope="session", params=POKEMON_TEST_CASES)
 def pokemon_test_cases(request):
     """Test cases for Pokemon"""
+    return request.param
+
+
+@pytest.fixture(scope="session", params=EVOLUTION_CHAIN_TEST_CASES)
+def evolution_chain_test_cases(request):
+    """Test cases for Evolution Chains"""
     return request.param
 
 

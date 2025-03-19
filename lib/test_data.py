@@ -13,3 +13,9 @@ POKEMON_TEST_CASES = [
     {"id": 135, "name": "jolteon"},
     {"id": 435, "name": "skuntank"},
 ]
+
+EVOLUTION_CHAIN_TEST_CASES = [
+    {"id": 1, "species_name": "bulbasaur"},
+    {"id": 5, "species_name": "weedle"},
+    {"id": 10, "species_name": "pichu"},
+]

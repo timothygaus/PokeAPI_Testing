@@ -4,7 +4,7 @@ Fixtures for pytest
 
 import pytest
 
-from lib.test_data import ENDPOINTS, POKEMON_TEST_CASES
+from lib.test_data import ENDPOINTS, POKEMON_TEST_CASES, GROWTH_RATES
 
 
 @pytest.fixture(scope="session")
@@ -22,6 +22,11 @@ def endpoint(request):
 @pytest.fixture(scope="session", params=POKEMON_TEST_CASES)
 def pokemon_test_cases(request):
     """Test cases for Pokemon"""
+    return request.param
+
+@pytest.fixture(scope="session", params=GROWTH_RATES)
+def growth_rate_test_cases(request):
+    """Test cases for Growth Rate"""
     return request.param
 
 

@@ -1,21 +1,23 @@
-repos:
-- repo: https://github.com/psf/black
-  rev: 25.1.0
-  hooks:
-    - id: black
-
-- repo: https://github.com/pycqa/flake8
-  rev: 7.2.0
-  hooks:
-    - id: flake8
-
-- repo: https://github.com/pre-commit/mirrors-pylint
-  rev: v3.0.0a5
-  hooks:
-    - id: pylint
-
 - repo: local
   hooks:
+    - id: black
+      name: Run black
+      entry: black
+      language: system
+      types: [python]
+
+    - id: flake8
+      name: Run flake8
+      entry: flake8
+      language: system
+      types: [python]
+
+    - id: pylint
+      name: Run pylint
+      entry: pylint
+      language: system
+      types: [python]
+
     - id: pytest
       name: Run pytest
       entry: pytest

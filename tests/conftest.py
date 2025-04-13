@@ -24,6 +24,7 @@ def pokemon_test_cases(request):
     """Test cases for Pokemon"""
     return request.param
 
+
 @pytest.fixture(scope="session", params=GROWTH_RATES)
 def growth_rate_test_cases(request):
     """Test cases for Growth Rate"""

@@ -1,25 +1,26 @@
-- repo: local
-  hooks:
-    - id: black
-      name: Run black
-      entry: black
-      language: system
-      types: [python]
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: Run black
+        entry: black
+        language: system
+        types: [python]
 
-    - id: flake8
-      name: Run flake8
-      entry: flake8
-      language: system
-      types: [python]
+      - id: flake8
+        name: Run flake8
+        entry: flake8
+        language: system
+        types: [python]
 
-    - id: pylint
-      name: Run pylint
-      entry: pylint
-      language: system
-      types: [python]
+      - id: pylint
+        name: Run pylint
+        entry: pylint
+        language: system
+        types: [python]
 
-    - id: pytest
-      name: Run pytest
-      entry: pytest
-      language: system
-      types: [python]
+      - id: pytest
+        name: Run pytest
+        entry: pytest
+        language: system
+        types: [python]

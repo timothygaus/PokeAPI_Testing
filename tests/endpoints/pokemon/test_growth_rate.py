@@ -48,3 +48,15 @@ def test_growth_rate_formula(base_url, growth_rate_test_cases):
     response = make_request("GET", f"{base_url}growth-rate/{growth_rate_id}")
     assert response.status_code == 200
     assert response.json()["formula"] is not None, f"Expected a formula but got None for growth rate ID {growth_rate_id}"
+
+
+def test_invalid_growth_rate_id(base_url):
+    """Test that the returned status code is 404 for invalid growth rate ID"""
+    response = make_request("GET", f"{base_url}growth-rate/999")
+    assert response.status_code == 404, f"Expected status code 404 but got {response.status_code}"
+
+
+def test_invalid_growth_rate_name(base_url):
+    """Test that the returned status code is 404 for invalid growth rate name"""
+    response = make_request("GET", f"{base_url}growth-rate/invalid_name")
+    assert response.status_code == 404, f"Expected status code 404 but got {response.status_code}"

@@ -5,7 +5,7 @@ repos:
     - id: black
 
 - repo: https://github.com/pycqa/flake8
-  rev: 7.1.2
+  rev: 7.2.0
   hooks:
     - id: flake8
 
@@ -13,3 +13,11 @@ repos:
   rev: v3.0.0a5
   hooks:
     - id: pylint
+
+- repo: local
+  hooks:
+    - id: pytest
+      name: Run pytest
+      entry: pytest
+      language: system
+      types: [python]

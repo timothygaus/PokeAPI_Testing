@@ -7,3 +7,4 @@ report.html
 *.code-workspace
 pylint_report.txt
 venv/
+Roadmap.md

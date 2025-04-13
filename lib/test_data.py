@@ -22,3 +22,9 @@ GROWTH_RATES = [
     {"id": 5, "name": "slow-then-very-fast"},
     {"id": 6, "name": "fast-then-very-slow"},
 ]
+
+GENDERS = [
+    {"id": 1, "name": "female"},
+    {"id": 2, "name": "male"},
+    {"id": 3, "name": "genderless"},
+]
